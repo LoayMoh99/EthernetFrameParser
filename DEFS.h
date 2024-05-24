@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-//This file contains any global constants and definitions to be used in the project.
+//This file contains any global constants, definitions, helper functions to be used in the project.
 
 enum ActionType 
 {
