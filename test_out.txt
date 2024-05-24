@@ -1,0 +1,88 @@
+Packet Type: Other
+Destination MAC: 0x112233445566
+Source MAC: 0x665544332211
+Type/Length: 0xDDDD
+Payload: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Checksum: 0x6546B984
+Payload Length: 46 Bytes 
+
+**************************************************************
+
+Packet Type: IP
+Destination MAC: 0x112233445566
+Source MAC: 0x665544332211
+Type/Length: 0x0800
+Payload: 0x4500003200014000FF117DB77F0000017F0000010BB80FA0001EE6570000000000000000000000000000000000000000000000000000000
+Checksum: 0x6546B984
+Payload Length: 55 Bytes 
+IP Payload: 
+  IP Version: 4
+  Internet Header Length: 20
+  Type of Service: 0x00
+  Total Length: 0x0032
+  Identification: 0x0001
+  Flags and Fragment Offset: 0x4000
+  Time to Live: 0xFF
+  Header Checksum: 0x7DB7
+  Source Address: 0x7F000001
+  Destination Address: 0x7F000001
+  Protocol: UDP
+	UDP Source Port: 0x0BB8 - Decimal: 3000
+	UDP Destination Port: 0x0FA0 - Decimal: 4000
+	UDP Length: 0x001E - Decimal: 30
+	UDP Checksum: 0xE657
+	UDP Data: 0000000000000000000000000000000000000000000000000000000
+
+
+
+**************************************************************
+
+Packet Type: IP
+Destination MAC: 0xFFFFFFFFFFFF
+Source MAC: 0x001A2B3C4D5E
+Type/Length: 0x0800
+Payload: 0x4500003C1C4640004011B1E6C0A80001C0A8000200350035001CB1E648656C6C6F2C20554450207061636B6574210000000000000000000
+Checksum: 0x6546B984
+Payload Length: 55 Bytes 
+IP Payload: 
+  IP Version: 4
+  Internet Header Length: 20
+  Type of Service: 0x00
+  Total Length: 0x003C
+  Identification: 0x1C46
+  Flags and Fragment Offset: 0x4000
+  Time to Live: 0x40
+  Header Checksum: 0xB1E6
+  Source Address: 0xC0A80001
+  Destination Address: 0xC0A80002
+  Protocol: UDP
+	UDP Source Port: 0x0035 - Decimal: 53
+	UDP Destination Port: 0x0035 - Decimal: 53
+	UDP Length: 0x001C - Decimal: 28
+	UDP Checksum: 0xB1E6
+	UDP Data: 48656C6C6F2C20554450207061636B6574210000000000000000000
+
+
+
+**************************************************************
+
+Packet Type: ARP
+Destination MAC: 0x112233445566
+Source MAC: 0x665544332211
+Type/Length: 0x0806
+Payload: 0x0001080006040001EEEEEEEEEEEE7F0000011111111111117F000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Checksum: 0xE30E9A7A
+Payload Length: 70 Bytes 
+ARP Payload: 
+  Hardware Type: 0x0001
+  Protocol Type: 0x0800
+  Hardware Address Length: 0x06
+  Protocol Address Length: 0x04
+  Operation Code: 0x0001
+  Sender Hardware Address: 0xEEEEEEEEEEEE
+  Sender Protocol Address: 0x7F000001
+  Target Hardware Address: 0x111111111111
+  Target Protocol Address: 0x7F000001
+
+**************************************************************
+

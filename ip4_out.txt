@@ -1,0 +1,82 @@
+Packet Type: IP
+Destination MAC: 0x000A959D6816
+Source MAC: 0x000A959D68FF
+Type/Length: 0x0800
+Payload: 0x4500003C1C4640004001B1E6C0A80101C0A801020800F7F9000100016162636465666768696A6B6C6D6E6F70717273747576
+Checksum: 0x7778797A
+Payload Length: 50 Bytes 
+IP Payload: 
+  IP Version: 4
+  Internet Header Length: 20
+  Type of Service: 0x00
+  Total Length: 0x003C
+  Identification: 0x1C46
+  Flags and Fragment Offset: 0x4000
+  Time to Live: 0x40
+  Header Checksum: 0xB1E6
+  Source Address: 0xC0A80101
+  Destination Address: 0xC0A80102
+  Protocol: ICMP
+	ICMP Type: 0x08
+	ICMP Code: 0x00
+	ICMP Checksum: 0xF7F9
+	ICMP Identifier: 0x0001
+	ICMP Sequence Number: 0x0001
+	ICMP Data: 6162636465666768696A6B6C6D6E6F70717273747576
+
+
+
+**************************************************************
+
+Packet Type: IP
+Destination MAC: 0x000A959D6816
+Source MAC: 0x000A959D68FF
+Type/Length: 0x0800
+Payload: 0x450000321C4640004011B1E6C0A80101C0A8010230390050001E123448656C6C6F2C2074686973206973206120746573742055445020706163
+Checksum: 0x6B657421
+Payload Length: 57 Bytes 
+IP Payload: 
+  IP Version: 4
+  Internet Header Length: 20
+  Type of Service: 0x00
+  Total Length: 0x0032
+  Identification: 0x1C46
+  Flags and Fragment Offset: 0x4000
+  Time to Live: 0x40
+  Header Checksum: 0xB1E6
+  Source Address: 0xC0A80101
+  Destination Address: 0xC0A80102
+  Protocol: UDP
+	UDP Source Port: 0x3039 - Decimal: 12345
+	UDP Destination Port: 0x0050 - Decimal: 80
+	UDP Length: 0x001E - Decimal: 30
+	UDP Checksum: 0x1234
+	UDP Data: 48656C6C6F2C2074686973206973206120746573742055445020706163
+
+
+
+**************************************************************
+
+Packet Type: IP
+Destination MAC: 0x000A959D6816
+Source MAC: 0x000A959D68FF
+Type/Length: 0x0800
+Payload: 0x4500003C1C4640004006B1E6C0A80101C0A80102303900500123456789ABCDEF501820001234000048656C6C6F2C2074686973206973206120746573742054435020706163
+Checksum: 0x6B657421
+Payload Length: 69 Bytes 
+IP Payload: 
+  IP Version: 4
+  Internet Header Length: 20
+  Type of Service: 0x00
+  Total Length: 0x003C
+  Identification: 0x1C46
+  Flags and Fragment Offset: 0x4000
+  Time to Live: 0x40
+  Header Checksum: 0xB1E6
+  Source Address: 0xC0A80101
+  Destination Address: 0xC0A80102
+  IP4 Unsupported Protocol: 303900500123456789ABCDEF501820001234000048656C6C6F2C2074686973206973206120746573742054435020706163
+
+
+**************************************************************
+
