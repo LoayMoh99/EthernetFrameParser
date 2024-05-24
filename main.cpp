@@ -1,27 +1,12 @@
-#include "ApplicationManager.h"
+#include "mainwindow.h"
 
-int main()
+#include <QApplication>
+
+int main(int argc, char *argv[])
 {
-
-	ActionType actType = EXIT;
-	//Create an object of ApplicationManager
-	ApplicationManager appManager;
-
-	do
-	{		
-		//Read user action
-		actType = appManager.GetUserAction();
-
-		//Exexute the action
-		appManager.ExecuteAction();
-
-		//Update the interface
-		appManager.UpdateInterface();	
-
-	} while(actType != EXIT);
-	
-
-	
-	return 0;
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.setWindowTitle("Ethernet Frame Parser");
+    w.show();
+    return a.exec();
 }
-

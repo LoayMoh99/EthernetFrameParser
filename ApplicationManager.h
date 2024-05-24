@@ -7,31 +7,37 @@
 #include "Packets\Packet.h"
 #include <queue>
 
-//Main class that manages everything in the application.
+class MainWindow;	//forward class declaration to prevent circuar dependency
+
+// Main class that manages everything in the application.
 class ApplicationManager
 {
 private:
-	queue<Packet*> packetQueue; // to FIFO (first come first serve/output)
-		
+	queue<Packet *> packetQueue; // to FIFO (first come first serve/output)
+
 	Input *pIn;
 	Output *pOut;
 	bool exitFlag;
 	void SetExitFlag(bool);
-	
 
-public:	
-	ApplicationManager(); 
-	~ApplicationManager();
-	
+	ActionType actionType;
+    MainWindow* mainwindow;
+
+public:
+    ApplicationManager(ActionType actType = EMPTY);
+    ~ApplicationManager();
+
+
 	// -- Packet Management Functions
-	void AddPacket(Packet* pPacket);
+	void AddPacket(Packet *pPacket);
 
 	// -- Action-Related Functions
 	ActionType GetUserAction();
-	void ExecuteAction(); 
-		
+	void ExecuteAction();
+
 	// -- Interface Management Functions
-	void UpdateInterface();	//Update the interface (console, UI, ..) with the output info	
+	void UpdateInterface(); // Update the interface (console, UI, ..) with the output info
+    void SetMainwindowUI(MainWindow*); // in case of GUI (QT)
 };
 
 #endif

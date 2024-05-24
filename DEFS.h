@@ -4,44 +4,52 @@
 #include <iostream>
 using namespace std;
 
-//This file contains any global constants, definitions, helper functions to be used in the project.
+// This file contains any global constants, definitions, helper functions to be used in the project.
 
-enum ActionType 
+enum ActionType
 {
-	STD_IO =1,		//Get input/output from/to std (standard library)  
-	FILE_IO,		//Get input/output from/to file 
-	GUI_IO,			//Get input/output from/to GUI - NOT YET Supported :(
-	EXIT,			//Exit
+	STD_IO = 1, // Get input/output from/to std (standard library)
+	FILE_IO,	// Get input/output from/to file
+	GUI_IO,		// Get input/output from/to GUI - NOT YET Supported :(
+	EMPTY,		// Empty action
+	EXIT,		// Exit
 };
 
 enum Ip4PayloadProtocol
 {
-	ICMP = 50,			
-	UDP,	
-	TCP,		// NOT YET Supported :(
+	ICMP = 50,
+	UDP,
+	TCP, // NOT YET Supported :(
 	Other,
 };
 
-static int HexCharToInt(char c) {
-	if (isdigit(c)) {
+static int HexCharToInt(char c)
+{
+	if (isdigit(c))
+	{
 		return c - '0'; // Convert '0'-'9' to 0-9
 	}
-	else if (isxdigit(c)) {
+	else if (isxdigit(c))
+	{
 		return toupper(c) - 'A' + 10; // Convert 'A'-'F'/'a'-'f' to 10-15
 	}
 	return -1; // invalid char
 }
 
-static int HexStringToInt(string hex) {
+static int HexStringToInt(string hex)
+{
 	int hexNum = 0;
-	for (char c : hex) {
+	for (char c : hex)
+	{
 		int hexCharNum = HexCharToInt(c);
-		if (hexCharNum != -1) {
+		if (hexCharNum != -1)
+		{
 			hexNum = hexNum * 16 + hexCharNum;
 		}
-		else {
+		else
+		{
 			// Invalid hex character
-			return -1; 
+			return -1;
 		}
 	}
 	return hexNum;

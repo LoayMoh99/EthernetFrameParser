@@ -1,4 +1,4 @@
-#include "Parser.h";
+#include "Parser.h"
 #include "../ApplicationManager.h"
 
 Parser::Parser(ApplicationManager* pApp) {
