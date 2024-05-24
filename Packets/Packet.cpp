@@ -26,7 +26,7 @@ string Packet::ParsePayload()
 	return ""; // since we don't support parsing of Other type packets
 }
 
-string Packet::PrintPacketInfo() {
+string Packet::GetPacketInfo() {
 	string packetInfo = "";
 
 	packetInfo += "Packet Type: " + packetType + "\n";

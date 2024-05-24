@@ -2,7 +2,7 @@
 It is a C++ program that can dissect and analyze Ethernet Frames with a focus on parsing IP and ARP packets. 
 
 ## Source Code:
-You can checkthe source code for the program here [Src Code]() 
+You can check the source code for the program in a drive from here [Src Code]() 
 
 ## Executable App:
 You can check an execuatable file for the program here [App.exe](https://drive.google.com/drive/folders/12tRCj9zhd5ktrLP-qHS2EjkqtNq-1yOy?usp=sharing) 
@@ -88,18 +88,18 @@ The project is divided into several components, each with specific responsibilit
 ## Components and Class Responsibilities
 1. ### I/O Classes
     **Base Classes**:
-    - Input: An abstract base class for input operations.
-    - Output: An abstract base class for output operations.
+    - Input: A base class for input operations.
+    - Output: A base class for output operations.
 
     **Derived Classes**:
     - FileInput: Handles input operations from files.
     - FileOutput: Handles output operations to files.
-    - StdInput: Handles input operations from standard input (i.e. cin).
-    - StdOutput: Handles output operations to standard output (i.e. cout).
+    - StdInput: Handles input operations from standard input (i.e. std::cin).
+    - StdOutput: Handles output operations to standard output (i.e. std::cout).
 
 2. ### Packets Classes
     **Base Classes**:
-    - Packet: A base class representing a generic network packet.
+    - Packet: A base class representing a generic packet.
 
     **Derived Classes**:
     - ARPPacket: Represents an ARP packet.
@@ -107,7 +107,7 @@ The project is divided into several components, each with specific responsibilit
 
 3. ### Parser Classes
     **Base Classes**:
-    - Parser: A base class for frame parsering.
+    - Parser: A base class for frame parsering - Add packets to Application manager.
     - IPPayloadParser: An abstract base class for parsing IP packet payloads.
 
     **Derived Classes**:
@@ -116,9 +116,31 @@ The project is divided into several components, each with specific responsibilit
 
 4. ### Application Manager
     The Application Manager orchestrates the entire application workflow, coordinating I/O operations, packet parsing, and output generation.
+    
+    Have a Queue of packets to be parsed and displayed/printed
 
 5. ### DEFS
     Contains global constants, definitions, and helper functions used throughout the project.
 
 6. ### Main File
     The entry point of the application.
+
+
+## Program Workflow
+So the App Manager do 3 main steps:
+- #### Get User Action 
+    -   See which action (i/o from std , i/o from file, exit) that the user choose
+- #### Execute This Action:
+    -   Get input frame(s) from the user
+    -   Parse each frame (if applicable) and return its suatible packet
+        - Supported Packet Types
+            - **ARP Packet**
+            - **IP Packet**
+                - ICMP Payload 
+                - UDP Payload
+            - **Other Packet**
+    -   Add this packet to the packet queue in the application manager
+- #### Update The Interface:
+    -   Loop over the queue to packet by packet
+    -   Make each packet print its parsed info
+    -   Remove this parsed packet

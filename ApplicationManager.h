@@ -31,8 +31,6 @@ public:
 	void ExecuteAction(); 
 		
 	// -- Interface Management Functions
-	Input *GetInput() const; //Return pointer to the input
-	Output *GetOutput() const; //Return pointer to the output
 	void UpdateInterface();	//Update the interface (console, UI, ..) with the output info	
 };
 

@@ -92,20 +92,13 @@ void ApplicationManager::UpdateInterface()
 
 	while (!packetQueue.empty()) {
 		Packet* currPacket = packetQueue.front();
-		pOut->UpdateOutput(currPacket->PrintPacketInfo());
+		pOut->UpdateOutput(currPacket->GetPacketInfo());
 		packetQueue.pop();
 		delete currPacket;
 	}
 	
 
 }
-////////////////////////////////////////////////////////////////////////////////////
-//Return a pointer to the input
-Input *ApplicationManager::GetInput() const
-{	return pIn; }
-//Return a pointer to the output
-Output *ApplicationManager::GetOutput() const
-{	return pOut; }
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor
 ApplicationManager::~ApplicationManager()

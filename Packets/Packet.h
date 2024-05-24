@@ -19,7 +19,7 @@ public:
 	string GetPayload() const;
 	
 	virtual string ParsePayload();
-	string PrintPacketInfo();
+	string GetPacketInfo();
 
 	~Packet();
 };
