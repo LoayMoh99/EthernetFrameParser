@@ -1,24 +1,26 @@
-#include "Parser.h"
+#include "Parser.h";
 #include "../ApplicationManager.h"
 
-Parser::Parser(ApplicationManager* pApp) {
+Parser::Parser(ApplicationManager *pApp)
+{
 	pManager = pApp;
 }
 
 // Calculate the sizes of all except payload
 int Parser::GetMetaDataSize()
 {
-	return destinationMacSize+ sourceMacSize+ etherTypeSize+ checksumSize;
+	return destinationMacSize + sourceMacSize + etherTypeSize + checksumSize;
 }
 
 bool Parser::ParseFrame(string frame)
 {
 	// validations
-	if (frame.size() < GetMetaDataSize() + minPayloadSize) {
+	if ((frame.size() < GetMetaDataSize() + minPayloadSize) || (frame.size() > GetMetaDataSize() + maxPayloadSize))
+	{
 		return false;
 	}
 
-	Packet* parsedPacket = nullptr;
+	Packet *parsedPacket = nullptr;
 
 	// Parse the components of the frame
 	string destMac = frame.substr(0, destinationMacSize);
@@ -27,12 +29,16 @@ bool Parser::ParseFrame(string frame)
 	string checksum = frame.substr(frame.size() - checksumSize, checksumSize);
 	string payload = frame.substr(destinationMacSize + sourceMacSize + etherTypeSize, frame.size() - GetMetaDataSize());
 
-	if (etherType == "0800") {
-		parsedPacket = new IPPacket(destMac, srcMac, etherType, payload,checksum);
-	} else if (etherType == "0806") {
+	if (etherType == "0800")
+	{
+		parsedPacket = new IPPacket(destMac, srcMac, etherType, payload, checksum);
+	}
+	else if (etherType == "0806")
+	{
 		parsedPacket = new ARPPacket(destMac, srcMac, etherType, payload, checksum);
-	} 
-	else {
+	}
+	else
+	{
 		/* Add more packet types here */
 		parsedPacket = new Packet(destMac, srcMac, etherType, payload, checksum); // Other Type Packets
 	}
