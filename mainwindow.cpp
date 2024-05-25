@@ -13,14 +13,19 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 vector<string>  MainWindow::GetUserInput() const{
-    QString input = ui->input->text();
+    QStringList qStringInputList = ui->input->text().split(',');
     vector<string> frames;
-    frames.push_back(input.toStdString());
+    for (const QString& qString : qStringInputList) {
+        if(!qString.isEmpty())
+            frames.push_back(qString.toStdString());
+    }
     return frames;
 }
 
 void MainWindow::UpdateOutput(string out){
-    ui->solutionTB->setText(QString::fromStdString(out));
+    // concatenate the output
+    QString concatenatedOut = ui->solutionTB->toPlainText() + QString::fromStdString(out);
+    ui->solutionTB->setText(concatenatedOut);
 }
 
 MainWindow::~MainWindow()
@@ -30,10 +35,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_parseBtn_clicked()
 {
+    // clear the output
+    ui->solutionTB->clear();
+
     ApplicationManager appManager(GUI_IO);
     appManager.SetMainwindowUI(this);
 
-    //Read user action
+    // Read user action (setup the action to be GUI_IO)
     appManager.GetUserAction();
 
     //Exexute the action
